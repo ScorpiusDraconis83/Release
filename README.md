@@ -5,10 +5,9 @@
 | Release  | Status              | Codename     |Initial Release | Active LTS Start | Maintenance Start | End-of-life               |
 | :--:     | :---:               | :---:        | :---:          | :---:            | :---:             | :---:                     |
 | [18.x][] | **Maintenance**     | [Hydrogen][] | 2022-04-19     | 2022-10-25       | 2023-10-18        | 2025-04-30                |
-| [20.x][] | **LTS**             | [Iron][]     | 2023-04-18     | 2023-10-24       | 2024-10-22        | 2026-04-30                |
-| [21.x][] | **Current**         |              | 2023-10-17     | -                | 2024-04-01        | 2024-06-01                |
-| 22.x     | **Pending**         |              | 2024-04-23     | 2024-10-29       | 2025-10-21        | 2027-04-30                |
-| 23.x     | **Pending**         |              | 2024-10-15     | -                | 2025-04-01        | 2025-06-01                |
+| [20.x][] | **Maintenance**     | [Iron][]     | 2023-04-18     | 2023-10-24       | 2024-10-22        | 2026-04-30                |
+| [22.x][] | **LTS**             | [Jod][]      | 2024-04-24     | 2024-10-29       | 2025-10-21        | 2027-04-30                |
+| [23.x][] | **Current**         |              | 2024-10-15     | -                | 2025-04-01        | 2025-06-01                |
 | 24.x     | **Pending**         |              | 2025-04-22     | 2025-10-28       | 2026-10-20        | 2028-04-30                |
 
 Dates are subject to change.
@@ -27,10 +26,10 @@ phases.
  * Current - Should incorporate most of the non-major (non-breaking)
  changes that land on `nodejs/node` main branch.
  * Active LTS - New features, bug fixes, and updates that have been audited by
- the LTS team and have been determined to be appropriate and stable for the
+ the Release team and have been determined to be appropriate and stable for the
  release line.
  * Maintenance - Critical bug fixes and security updates. New features may be
- added at the discretion of the LTS team - typically only in cases where
+ added at the discretion of the Release team - typically only in cases where
  the new feature supports migration to later release lines.
 
 Changes required for critical security and bug fixes may lead to *semver-major*
@@ -61,6 +60,7 @@ that are not End-of-Life.
 | [16.x][] | **End-of-Life** |[Gallium][]|    2021-04-20   |    2021-10-26    |       2022-10-18      | [2023-09-11][nodejs16eol] |
 | [17.x][] | **End-of-Life** |           |    2021-10-19   |         -        |                       |  2022-06-01 |
 | [19.x][] | **End-of-Life** |           |    2022-10-18   |         -        |                       |  2023-06-01 |
+| [21.x][] | **End-of-Life** |           |    2023-10-17   |         -        |       2024-04-01      |  2024-06-01 |
 
 ## Mandate
 
@@ -83,16 +83,16 @@ the working group does not automatically result in membership in these
 teams. These teams are:
 
 * Releasers team
-* LTS team
+* Backporters team
 * CITGM team
 
 The `releasers` team is entrusted with the secrets and CI access to be able
 build and sign releases. **Additions to the releasers team must be approved
 by the TSC following the process outlined in GOVERNANCE.md.**
 
-The Long Term Support (LTS) team manages the process/content of LTS releases
-and the required backporting for these releases. Additions to the LTS
-team needs sign off from the rest of the LTS team.
+The Release team manages the process/content of LTS releases
+and the required backporting for these releases. Additions to the Release
+team needs sign off from the rest of the Release team.
 
 The Canary in the Gold Mine (CITGM) team maintains CITGM as one of
 the key sanity checks for releases. This team maintains the CITGM
@@ -114,7 +114,7 @@ should happen after the new major version is released.
 Every even (LTS) major version will be actively maintained for 12 months from
 the date it enters LTS coverage. Following those 12 months of active support,
 the major version will transition into "maintenance" mode for 18 months. Prior
-to Node.js 12 the active period was 18 months and the maintenance period 12
+to Node.js 12, the active period was 18 months and the maintenance period 12
 months. See [Releases Phases](#release-phases) for details of which changes
 are expected to land during each release phase.
 
@@ -155,6 +155,7 @@ the discretion of the Release working group.
 [Gallium]: https://nodejs.org/download/release/latest-gallium/
 [Hydrogen]: https://nodejs.org/download/release/latest-hydrogen/
 [Iron]: https://nodejs.org/download/release/latest-iron/
+[Jod]: https://nodejs.org/download/release/latest-jod/
 [JSON]: schedule.json
 [nodejs16eol]: https://nodejs.org/en/blog/announcements/nodejs16-eol/
 [4.x]: https://nodejs.org/download/release/latest-v4.x/
@@ -175,38 +176,21 @@ the discretion of the Release working group.
 [19.x]: https://nodejs.org/download/release/latest-v19.x/
 [20.x]: https://nodejs.org/download/release/latest-v20.x/
 [21.x]: https://nodejs.org/download/release/latest-v21.x/
+[22.x]: https://nodejs.org/download/release/latest-v22.x/
+[23.x]: https://nodejs.org/download/release/latest-v23.x/
 
-The working group members are the union of the LTS, Releasers
+The working group members are the union of the Releasers, Backporters
 and CITGM team members listed below.
-
-## LTS Team members
-
-<!-- ncu-team-sync.team(nodejs/lts) -->
-
-* [@BethGriggs](https://github.com/BethGriggs) - Bethany Nicolle Griggs
-* [@BridgeAR](https://github.com/BridgeAR) - Ruben Bridgewater
-* [@codebytere](https://github.com/codebytere) - Shelley Vohr
-* [@danielleadams](https://github.com/danielleadams) - Danielle Adams
-* [@guybedford](https://github.com/guybedford) - Guy Bedford
-* [@mhdawson](https://github.com/mhdawson) - Michael Dawson
-* [@MylesBorins](https://github.com/MylesBorins) - Myles Borins
-* [@RafaelGSS](https://github.com/RafaelGSS) - Rafael Gonzaga
-* [@richardlau](https://github.com/richardlau) - Richard Lau
-* [@ruyadorno](https://github.com/ruyadorno) - Ruy Adorno
-* [@targos](https://github.com/targos) - Michaël Zasso
-
-<!-- ncu-team-sync end -->
 
 ### Backporters team
 
 <!-- ncu-team-sync.team(nodejs/backporters) -->
 
-* [@BethGriggs](https://github.com/BethGriggs) - Bethany Nicolle Griggs
+* [@BethGriggs](https://github.com/BethGriggs) - Bethany Griggs
 * [@codebytere](https://github.com/codebytere) - Shelley Vohr
 * [@danielleadams](https://github.com/danielleadams) - Danielle Adams
 * [@guybedford](https://github.com/guybedford) - Guy Bedford
 * [@mhdawson](https://github.com/mhdawson) - Michael Dawson
-* [@MylesBorins](https://github.com/MylesBorins) - Myles Borins
 * [@RafaelGSS](https://github.com/RafaelGSS) - Rafael Gonzaga
 * [@richardlau](https://github.com/richardlau) - Richard Lau
 
@@ -216,11 +200,8 @@ and CITGM team members listed below.
 
 <!-- ncu-team-sync.team(nodejs/releasers) -->
 
-* [@bengl](https://github.com/bengl) - Bryan English
-* [@BethGriggs](https://github.com/BethGriggs) - Bethany Nicolle Griggs
-* [@danielleadams](https://github.com/danielleadams) - Danielle Adams
 * [@juanarbol](https://github.com/juanarbol) - Juan José
-* [@MylesBorins](https://github.com/MylesBorins) - Myles Borins
+* [@marco-ippolito](https://github.com/marco-ippolito) - Marco Ippolito
 * [@RafaelGSS](https://github.com/RafaelGSS) - Rafael Gonzaga
 * [@richardlau](https://github.com/richardlau) - Richard Lau
 * [@ruyadorno](https://github.com/ruyadorno) - Ruy Adorno
@@ -237,12 +218,15 @@ and CITGM team members listed below.
 
 ### LTS team
 - [@addaleax](https://github.com/addaleax) - Anna Henningsen
+- [@BethGriggs](https://github.com/BethGriggs) - Bethany Griggs
 - [@bnoordhuis](https://github.com/bnoordhuis) - Ben Noordhuis
+- [@danielleadams](https://github.com/danielleadams) - Danielle Adams
 - [@ErisDS](https://github.com/ErisDS) - Hannah Wolfe
 - [@Fishrock123](https://github.com/Fishrock123) - Jeremiah Senkpiel
 - [@geek](https://github.com/geek) - Wyatt Preul
 - [@gibfahn](https://github.com/gibfahn) - Gibson Fahnestock
 - [@jasnell](https://github.com/jasnell) - James M Snell
+- [@MylesBorins](https://github.com/MylesBorins) - Myles Borins
 - [@othiym23](https://github.com/othiym23) - Forrest L Norvell
 - [@rvagg](https://github.com/rvagg) - Rod Vagg
 - [@sam-github](https://github.com/sam-github) - Sam Roberts
@@ -252,11 +236,15 @@ and CITGM team members listed below.
 - [@yunong](https://github.com/yunong) - Yunong Xiao
 
 ### Releasers team
+- [@bengl](https://github.com/bengl) - Bryan English
+- [@BethGriggs](https://github.com/BethGriggs) - Bethany Griggs
 - [@BridgeAR](https://github.com/BridgeAR) - Ruben Bridgewater
 - [@cjihrig](https://github.com/cjihrig) - Colin Ihrig
 - [@codebytere](https://github.com/codebytere) - Shelley Vohr
+- [@danielleadams](https://github.com/danielleadams) - Danielle Adams
 - [@evanlucas](https://github.com/evanlucas) - Evan Lucas
 - [@Fishrock123](https://github.com/Fishrock123) - Jeremiah Senkpiel
 - [@gibfahn](https://github.com/gibfahn) - Gibson Fahnestock
 - [@jasnell](https://github.com/jasnell) - James M Snell
+- [@MylesBorins](https://github.com/MylesBorins) - Myles Borins
 - [@rvagg](https://github.com/rvagg) - Rod Vagg
